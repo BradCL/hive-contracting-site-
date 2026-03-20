@@ -1,0 +1,26 @@
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (in case we add build tools later)
+node_modules/
+package-lock.json
+
+# Environment / secrets
+.env
+.env.local
+
+# Build output (if we add a build step later)
+dist/
+build/
+
+# Logs
+*.log
