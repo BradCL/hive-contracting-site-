@@ -132,7 +132,7 @@ ul { list-style: none; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../img/banner.png') center/cover no-repeat;
+  background: url(/img/banner.jpeg) center/cover no-repeat;
   /* TODO: compress banner.png to under 200KB (or convert to .jpg/.webp) before launch — currently 980KB */
 }
 
@@ -596,6 +596,190 @@ ul { list-style: none; }
   .area-list { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+/* ============================================
+   GALLERY PAGE
+   ============================================ */
+
+/* Page header (sub-hero used across inner pages) */
+.page-header {
+  position: relative;
+  padding-top: var(--nav-height);
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.page-header-bg {
+  position: absolute;
+  inset: 0;
+  background: url(/img/banner.jpeg) center/cover no-repeat;
+}
+
+.page-header-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.78) 60%,
+    rgba(0, 0, 0, 0.97) 100%
+  );
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 2;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.page-header-content { max-width: 640px; }
+
+.page-header-content .section-tag { margin-bottom: 16px; }
+
+.page-header-content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.page-header-content p {
+  font-size: 1.05rem;
+  color: rgba(245, 245, 240, 0.72);
+  line-height: 1.7;
+}
+
+/* Gallery section */
+.gallery {
+  padding: 80px 0 100px;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.filter-btn {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  background: transparent;
+  color: var(--color-gray-light);
+  border: 1px solid var(--color-gray-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.filter-btn.active {
+  background: var(--color-yellow);
+  color: var(--color-black);
+  border-color: var(--color-yellow);
+}
+
+/* Album grid */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Album card */
+.album-card {
+  background: var(--color-gray-dark);
+  border: 1px solid var(--color-gray-border);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.album-card:hover {
+  border-color: var(--color-yellow);
+  transform: translateY(-3px);
+}
+
+.album-card-img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.album-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.album-card:hover .album-card-img img {
+  transform: scale(1.04);
+}
+
+/* Reuse .photo-placeholder inside the image area */
+.album-card-img .photo-placeholder {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: unset;
+}
+
+.album-card-body {
+  padding: 20px 24px 24px;
+}
+
+.album-tag {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.album-card-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.album-meta {
+  font-size: 0.85rem;
+  color: var(--color-gray-light);
+}
+
+/* Empty state */
+.gallery-empty {
+  text-align: center;
+  padding: 64px 0;
+  color: var(--color-gray-light);
+  font-size: 1rem;
+}
+
+/* Gallery responsive */
+@media (max-width: 900px) {
+  .album-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 580px) {
+  .album-grid { grid-template-columns: 1fr; }
+  .filter-bar { gap: 8px; }
+  .filter-btn { font-size: 0.75rem; padding: 7px 14px; }
 }
 
 /* ============================================

@@ -32,3 +32,31 @@ if (navToggle && navLinks) {
     });
   });
 }
+
+/* ============================================
+   GALLERY FILTER
+   ============================================ */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const albumCards = document.querySelectorAll('.album-card');
+const galleryEmpty = document.getElementById('gallery-empty');
+
+if (filterBtns.length && albumCards.length) {
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      let visibleCount = 0;
+
+      albumCards.forEach(card => {
+        const match = filter === 'all' || card.dataset.type === filter;
+        card.hidden = !match;
+        if (match) visibleCount++;
+      });
+
+      if (galleryEmpty) galleryEmpty.hidden = visibleCount > 0;
+    });
+  });
+}
