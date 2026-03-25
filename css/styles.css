@@ -783,6 +783,69 @@ ul { list-style: none; }
 }
 
 /* ============================================
+   ABOUT PAGE
+   ============================================ */
+
+.about-intro {
+  padding: 100px 0;
+  border-top: 1px solid var(--color-gray-border);
+}
+
+.about-intro-body {
+  max-width: 800px;
+}
+
+.about-intro-body .section-tag {
+  margin-bottom: 24px;
+}
+
+.about-intro-body p {
+  font-size: 1.1rem;
+  color: rgba(245, 245, 240, 0.82);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.about-intro-body p:last-child {
+  margin-bottom: 0;
+}
+
+.mission-pillars {
+  padding: 100px 0;
+  border-top: 1px solid var(--color-gray-border);
+}
+
+.mission-card {
+  background: var(--color-gray-dark);
+  border: 1px solid var(--color-gray-border);
+  padding: 48px;
+}
+
+.mission-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+}
+
+.mission-list li {
+  font-size: 0.95rem;
+  color: rgba(245, 245, 240, 0.75);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-gray-border);
+}
+
+.mission-list li::before {
+  content: '—';
+  color: var(--color-yellow);
+  margin-right: 12px;
+}
+
+@media (max-width: 640px) {
+  .mission-list { grid-template-columns: 1fr; }
+  .mission-card { padding: 32px 24px; }
+}
+
+/* ============================================
    ANIMATIONS
    ============================================ */
 @media (prefers-reduced-motion: no-preference) {
