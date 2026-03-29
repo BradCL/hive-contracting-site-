@@ -133,7 +133,6 @@ ul { list-style: none; }
   position: absolute;
   inset: 0;
   background: url(/img/banner.jpeg) center/cover no-repeat;
-  /* TODO: compress banner.png to under 200KB (or convert to .jpg/.webp) before launch — currently 980KB */
 }
 
 .hero-bg::after {
@@ -478,18 +477,18 @@ ul { list-style: none; }
   margin-right: 10px;
 }
 
-.area-map-placeholder {
+
+.area-map {
   aspect-ratio: 4/3;
-  background: var(--color-gray-mid);
-  border: 1px dashed var(--color-gray-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-gray-light);
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.area-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  filter: grayscale(30%) contrast(1.05);
 }
 
 /* ============================================
