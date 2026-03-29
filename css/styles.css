@@ -593,6 +593,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 640px) {
+  .services-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .nav-links.open {
     display: flex;
