@@ -372,6 +372,13 @@ ul { list-style: none; }
   gap: 2px;
 }
 
+.photo-strip-grid img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
 .photo-placeholder {
   aspect-ratio: 4/3;
   background: var(--color-gray-mid);
@@ -1134,5 +1141,125 @@ ul { list-style: none; }
   .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+.album-card {
+  cursor: pointer;
+}
+
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-overlay.open {
+  display: flex;
+}
+
+.lightbox-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 100%;
+}
+
+.lightbox-img-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.lightbox-img-wrap img {
+  max-width: 90vw;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+}
+
+.lightbox-btn {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.lightbox-btn:hover {
+  color: var(--color-yellow);
+}
+
+.lightbox-btn svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1001;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-prev { left: -56px; }
+.lightbox-next { right: -56px; }
+
+.lightbox-footer {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.lightbox-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.lightbox-counter {
+  font-size: 0.8rem;
+  color: var(--color-gray-light);
+}
+
+@media (max-width: 640px) {
+  .lightbox-prev { left: -40px; }
+  .lightbox-next { right: -40px; }
+
+  .lightbox-btn svg {
+    width: 22px;
+    height: 22px;
   }
 }
