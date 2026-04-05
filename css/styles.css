@@ -640,7 +640,7 @@ ul { list-style: none; }
 .page-header-bg {
   position: absolute;
   inset: 0;
-  background: url(../img/banner.jpeg) center/cover no-repeat;
+  background: url(../img/banner.jpg) center/cover no-repeat;
 }
 
 .page-header-bg::after {
