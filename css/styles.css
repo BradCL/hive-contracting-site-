@@ -643,6 +643,10 @@ ul { list-style: none; }
   background: url(../img/banner.jpg) center/cover no-repeat;
 }
 
+.about-page-bg {
+  background-image: url(../img/about-banner.jpg);
+}
+
 .page-header-bg::after {
   content: '';
   position: absolute;
