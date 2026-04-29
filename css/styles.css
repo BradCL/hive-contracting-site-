@@ -682,6 +682,7 @@ ul { list-style: none; }
 
 .about-page-bg {
   background-image: url(../img/about-banner.jpg);
+  background-position: center 40%;
 }
 
 .about-page-bg::after {
