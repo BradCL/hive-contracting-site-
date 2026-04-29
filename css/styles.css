@@ -647,6 +647,15 @@ ul { list-style: none; }
   background-image: url(../img/about-banner.jpg);
 }
 
+.about-page-bg::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45) 0%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.70) 100%
+  );
+}
+
 .page-header-bg::after {
   content: '';
   position: absolute;
